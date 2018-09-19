@@ -20,3 +20,14 @@ figure();
 imshow(g2);
 figure()
 imshow(g3);
+
+%% Logarithmic and Contrast-Stretching Transformations
+% Logarithmic: i = c*log(1 + double(f))
+% Shape similar to gamma curve. However, the shape of log is fixed.
+% Usage: compress dynamic range(for example, Fourier spectrum)
+f = imread('./samples/fourier_spec.png');
+g = im2uint16(mat2gray(log(1 + double(f))));
+
+imshow(f);
+figure();
+imshow(g);
